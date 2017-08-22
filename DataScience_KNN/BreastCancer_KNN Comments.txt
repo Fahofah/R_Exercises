@@ -1,0 +1,34 @@
+Small Data set:
+- Sub setting was applied to original data set to remove IDs and original column names(V1..V33) and also to seperate results and perform knn modelling and testing.
+
+- Cleaning the data at hand was done by finding the realtionships between variables such as radius~perimeter and applying these wehre misssing values are present. Where not applicable, though low in number, median of columns were used to fill missing values.
+
+-SE column were included in the training but "worst" columns were excluded (effect to be investigated further)
+
+-Optimal k_value analysis showed that k_value of 3 is the optimal value for this case.Resulting table of simulation outcome is:
+
+      B  Harmless  M
+  B  28        0   1
+  M   0        0  21 	with accuracy of 98%
+
+Big Data Set:
+- Same techniques were applied to this data set except the data celenaing as this set was already clean.
+
+- k_value analysis, unlike the small data, provided a set of minimum-error k_values. The value of derived from smooth line graph, 27, gave the following outcome table:
+
+    B  M
+  B 77  0
+  M  2 21 with 98% accuracy
+
+However, it is seen that 2 benign predictions were actually malignant
+. In the scope of cancer diagnosis this is a far worse outcome than having the opposite prediction errors becasue it hides the malignant cancer and prevents early treatment. 
+
+So other available lowest-error k_values were analysed and k_value of 7 was found to be the optimum. K_value of 7 gives the same 98% accuracy but errors on the postive side. Resulting table is as below:
+
+     B  M
+  B 75  2
+  M  0 23   It is seen that in 2 error cases, the prediction would say that 2 patients out of every 100 will 		have malignant cancer, which will initially cause great distress in arount the patient, 		however, upon further investigataion by the doctors it would soon be confirmed that the 		cancer is actually benign and thus the chaos around in around the patient would subside.
+
+This is a far favourable situation than the first case so k_value of 7 is selected as optimum for the big data set. 
+
+
